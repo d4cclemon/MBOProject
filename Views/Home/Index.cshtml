@@ -1,0 +1,21 @@
+﻿@model IndexViewModel
+
+<main>
+    <ul>
+        @if (Model.IndexArticleList != null) 
+        {
+            foreach (var article in Model.IndexArticleList)
+            {
+            <li>
+                <a href="">
+                    <img src="~/Content/img/F21E470E-BBC6-4EC2-8A42-CBF8DB57911B.jpg" width="329" height="185">
+                    <article>
+                        <h2>@article.Title</h2>
+                        <p>@article.Description</p>
+                    </article>
+                </a>
+            </li>
+            } 
+        }
+    </ul>
+</main>

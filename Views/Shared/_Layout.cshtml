@@ -1,0 +1,21 @@
+﻿@model ViewModelBase
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>へたっぴエンジニアの備忘録</title>
+    @Styles.Render("~/Content/styles.css")
+</head>
+<body>
+    @Html.Partial("_Header")
+
+    <div class="container">
+        @Html.Partial("_LeftMenu", Model.LeftMenuViewModel)
+        @RenderBody()
+    </div>
+    @Html.Partial("_Footer")
+
+    @Scripts.Render("~/Scripts/main.js")
+</body>
+</html>

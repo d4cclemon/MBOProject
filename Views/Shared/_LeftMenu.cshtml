@@ -1,0 +1,50 @@
+﻿@model LeftMenuViewModel
+
+<section class="leftMenu">
+    <div class="content">
+        <h2>自己紹介</h2>
+        <ul>
+            <li><a href="/Home/Introduction">自己紹介</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <h2>人気記事</h2>
+        <ul>
+            @if (Model.RankingArticleList != null)
+            { 
+                foreach (var ranking in Model.RankingArticleList)
+                {
+                    <li><a href="/Home/Article?ArticleId=@(ranking.Id)">@ranking.Title</a></li>
+                } 
+            }
+        </ul>
+    </div>
+    <div class="content">
+        <h2>最近更新した記事</h2>
+        <ul>
+            @if (Model.RecentlyUpdateArticles != null)
+            {
+                foreach (var RecentlyArticle in Model.RecentlyUpdateArticles)
+                {
+                    <li><a href="/Home/Article?ArticleId=@(RecentlyArticle.Id)">@RecentlyArticle.Title</a></li>
+                }
+            }
+        </ul>
+    </div>
+    <div class="content">
+        <h2>アーカイブ</h2>
+        <ul>
+            <select name="archive">
+                <option value="">アーカイブ</option>
+                @if (Model.ArchiveArticleInfo != null)
+                {
+                    foreach (var archive in Model.ArchiveArticleInfo)
+                    {
+                        <option value="/?m=202105">@(archive.DateInfo.Year)年@(archive.DateInfo.Month)月 &nbsp;(@archive.Count)</option>
+                    }
+                }
+            </select>
+        </ul>
+    </div>
+
+</section>
